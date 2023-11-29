@@ -23,5 +23,7 @@ dependencyResolutionManagement {
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "Absolute"
 include(":app")
+include(":navigation")
+include(":data")
 include(":dependencies")
 include(":server_driven_ui")

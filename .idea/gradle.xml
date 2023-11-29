@@ -25,7 +25,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/convention" />
+            <option value="$PROJECT_DIR$/data" />
             <option value="$PROJECT_DIR$/dependencies" />
+            <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/server_driven_ui" />
           </set>
         </option>
