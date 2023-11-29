@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    /*api(projects.data)*/
+    api(projects.data)
 
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.database)

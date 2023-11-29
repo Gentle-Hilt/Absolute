@@ -30,6 +30,7 @@
             <option value="$PROJECT_DIR$/navigation" />
             <option value="$PROJECT_DIR$/screens" />
             <option value="$PROJECT_DIR$/screens/categories" />
+            <option value="$PROJECT_DIR$/screens/menu" />
             <option value="$PROJECT_DIR$/server_driven_ui" />
           </set>
         </option>
