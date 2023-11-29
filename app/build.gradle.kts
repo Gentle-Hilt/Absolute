@@ -31,6 +31,18 @@ android {
 }
 
 dependencies {
+    implementation(projects.serverDrivenUi)
+    implementation(projects.navigation)
+    implementation(projects.screens.menu)
+    implementation(projects.screens.categories)
 
+    implementation(libs.compose.activity)
+    implementation(libs.compose.lifecycle)
+    implementation(libs.gentle.hilt.navigation)
+    implementation(libs.koin.android)
+    implementation(libs.koin.workmanager)
+    implementation(libs.lifecycle.process)
 
+    implementation(libs.logger)
+    implementation(libs.timber)
 }
