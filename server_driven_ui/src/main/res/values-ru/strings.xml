@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fcm_update_ui">Обновление интерфейса</string>
+    <string name="ui_updates_channel_name">Автоматические обновления</string>
+
+    <string name="fcm_promotions">Акции</string>
+    <string name="fcm_promotion_channel_name">Реклама и Акции</string>
+
+
+    <string name="fcm_silent">Беззвучные</string>
+    <string name="fcm_silent_channel_name">Беззвучные Уведомления</string>
+</resources>

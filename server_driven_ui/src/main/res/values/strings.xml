@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="fcm_update_ui">FCM_UPDATE_UI</string>
+    <string name="ui_updates_channel_name">Automatic Updates</string>
+
+    <string name="fcm_promotions">FCM_PROMOTIONS</string>
+    <string name="fcm_promotion_channel_name">Advertisement and Promotions</string>
+
+
+    <string name="fcm_silent">FCM_SILENT</string>
+    <string name="fcm_silent_channel_name">Silent Notifications</string>
+</resources>
