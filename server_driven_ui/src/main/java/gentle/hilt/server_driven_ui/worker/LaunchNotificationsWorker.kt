@@ -25,7 +25,7 @@ class LaunchNotificationsWorker(
     private val notificationType = intent.getStringExtra("action")
 
     override suspend fun doWork() = withContext(Dispatchers.IO) {
-        if (dataStore.readSilentUpdates.first() || notificationType == "silent") {
+        if (dataStore.readSilentUpdates.first() && notificationType != "secret" || notificationType == "silent") {
             createWorkerForDataBaseUpdate(context)
             handleSilentNotificationIntent(
                 intent = intent,
@@ -70,7 +70,6 @@ class LaunchNotificationsWorker(
                 }
             }
         }
-
     }
 
 
