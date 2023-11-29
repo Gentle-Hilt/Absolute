@@ -11,6 +11,8 @@ import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import cafe.adriel.lyricist.ProvideStrings
 import cafe.adriel.lyricist.rememberStrings
+import com.google.firebase.auth.FirebaseAuth
+import gentle.hilt.absolute.first_time_in_app.firstTimeInApplication
 import gentle.hilt.absolute.navigation.AppNavigation
 import gentle.hilt.absolute.theme_selector.ProvideThemes
 import gentle.hilt.data.datastore.DataStoreManager
@@ -23,6 +25,7 @@ class SingleActivity : ComponentActivity() {
 
     val viewModel: SharedUiViewModel by inject()
     private val dataStore: DataStoreManager by inject()
+    private val firebaseAuth: FirebaseAuth by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +35,7 @@ class SingleActivity : ComponentActivity() {
         setContent {
             ProvideThemes(dataStore) {
                 ProvideStrings(lyricist = rememberStrings(allLocales), provider = LocalStrings) {
-                    AppNavigation(dataStore = dataStore)
+                    AppNavigation(dataStore)
                 }
             }
         }
@@ -41,6 +44,9 @@ class SingleActivity : ComponentActivity() {
     private inner class AppLifecycleObserver : LifecycleEventObserver {
         override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
             when (event) {
+                Lifecycle.Event.ON_CREATE -> {
+                    firstTimeInApplication(source.lifecycleScope, activity = this@SingleActivity, dataStore, firebaseAuth)
+                }
                 Lifecycle.Event.ON_START -> {
                     viewModel.observeUpdatesFromRTDB(source.lifecycleScope)
                 }

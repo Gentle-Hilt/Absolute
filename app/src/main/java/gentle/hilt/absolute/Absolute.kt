@@ -2,6 +2,7 @@ package gentle.hilt.absolute
 
 import android.app.Application
 import cafe.adriel.voyager.core.registry.ScreenRegistry
+import com.google.firebase.FirebaseApp
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.Logger
@@ -20,6 +21,7 @@ class Absolute : Application() {
     override fun onCreate() {
         super.onCreate()
         clickableTimberLogs()
+        FirebaseApp.initializeApp(this)
 
         ScreenRegistry {
             categoriesScreen()

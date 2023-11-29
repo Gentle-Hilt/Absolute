@@ -47,3 +47,34 @@ render.experimental.xml
 
 # Android Profiling
 *.hprof
+
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+out/
+
+# Eclipse project files
+.classpath
+.project
+
+# IDEA/Android Studio project files, because
+# the project can be imported from settings.gradle.kts
+.idea/*
+!.idea/copyright
+# Keep the code styles.
+!/.idea/codeStyles
+/.idea/codeStyles/*
+!/.idea/codeStyles/Project.xml
+!/.idea/codeStyles/codeStyleConfig.xml
+
+
+# Sandbox stuff
+_sandbox
+

@@ -5,6 +5,7 @@ import gentle.hilt.data.di.authModule
 import gentle.hilt.data.di.dataModule
 import gentle.hilt.history.HistoryScreenVM
 import gentle.hilt.menu.MenuScreenVM
+import gentle.hilt.profile.ProfileScreenVM
 import gentle.hilt.server_driven_ui.di.serverDrivenUiModule
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
@@ -15,4 +16,5 @@ val absoluteModule = module {
     viewModelOf(::MenuScreenVM)
     viewModelOf(::CartScreenVM)
     viewModelOf(::HistoryScreenVM)
+    viewModelOf(::ProfileScreenVM)
 }

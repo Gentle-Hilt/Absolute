@@ -37,6 +37,7 @@ dependencies {
     implementation(projects.screens.categories)
     implementation(projects.screens.cart)
     implementation(projects.screens.history)
+    implementation(projects.screens.profile)
 
     implementation(libs.compose.activity)
     implementation(libs.compose.lifecycle)
@@ -49,4 +50,7 @@ dependencies {
     implementation(libs.logger)
     implementation(libs.timber)
     implementation(libs.compose.strings.lyricist)
+
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.ui)
 }

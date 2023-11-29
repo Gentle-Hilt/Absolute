@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import gentle.hilt.data.cart.CartRepository
 import gentle.hilt.data.datastore.DataStoreManager
 import gentle.hilt.data.server_driven_ui.UiEntity
 import gentle.hilt.data.server_driven_ui.UiRepository
@@ -22,11 +23,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import org.jetbrains.annotations.TestOnly
 import timber.log.Timber
 
 
 class SharedUiViewModel(
     private val uiRepository: UiRepository,
+    private val cartRepository: CartRepository,
     private val dataStore: DataStoreManager
 ) : ViewModel() {
     private val dataBase = Firebase.database
@@ -42,6 +45,7 @@ class SharedUiViewModel(
                     val snapshot = ui.get().await()
                     val uiEntity = uiEntityListener(snapshot)
 
+                    cartRepository.clearCart()
                     updateOrInsertUiEntity(uiEntity, lifeCycleScope)
                 } else if (_uiState.value == null) {
                     Timber.d("Ui Loaded from Room - ViewModelInstance $this@SharedUiViewModel")
