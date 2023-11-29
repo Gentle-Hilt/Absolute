@@ -29,6 +29,10 @@ import gentle.hilt.data.datastore.DataStoreManager
 import gentle.hilt.data.datastore.MagicNumbers.BOTTOM_NAVIGATION_HEIGHT
 import gentle.hilt.data.datastore.MagicNumbers.SEARCH_ICON_SIZE
 import gentle.hilt.data.res.animations.VerticallySlidingTitle
+import gentle.hilt.data.res.drawables.CartIconPainter
+import gentle.hilt.data.res.drawables.HomeIconPainter
+import gentle.hilt.data.res.drawables.ProfileIconPainter
+import gentle.hilt.data.res.drawables.SearchIconPainter
 
 import gentle.hilt.data.res.themes.NoRippleEffectTheme
 import gentle.hilt.data.res.themes.themeColors
