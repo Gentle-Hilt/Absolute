@@ -1,7 +1,5 @@
 package gentle.hilt.data.res.themes
 
-import gentle.hilt.data.datastore.MagicNumbers
-
 sealed class Themes {
     data object DefaultThemes : Themes()
     data object GreenAppleThemes : Themes()

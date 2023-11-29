@@ -10,6 +10,7 @@ import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import cafe.adriel.lyricist.ProvideStrings
 import cafe.adriel.lyricist.rememberStrings
+import gentle.hilt.absolute.navigation.AppNavigation
 import gentle.hilt.absolute.theme_selector.ProvideThemes
 import gentle.hilt.data.datastore.DataStoreManager
 import gentle.hilt.data.res.strings.LocalStrings
@@ -29,7 +30,7 @@ class SingleActivity : ComponentActivity() {
         setContent {
             ProvideThemes(dataStore) {
                 ProvideStrings(lyricist = rememberStrings(allLocales), provider = LocalStrings) {
-
+                    AppNavigation(dataStore = dataStore)
                 }
             }
         }
