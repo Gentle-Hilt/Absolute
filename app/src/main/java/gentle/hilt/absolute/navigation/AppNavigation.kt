@@ -28,6 +28,7 @@ import gentle.hilt.absolute.navigation.tabs.TabNavigationItem
 import gentle.hilt.data.datastore.DataStoreManager
 import gentle.hilt.data.datastore.MagicNumbers.BOTTOM_NAVIGATION_HEIGHT
 import gentle.hilt.data.datastore.MagicNumbers.SEARCH_ICON_SIZE
+import gentle.hilt.data.res.animations.VerticallySlidingTitle
 
 import gentle.hilt.data.res.themes.NoRippleEffectTheme
 import gentle.hilt.data.res.themes.themeColors
@@ -62,7 +63,7 @@ fun AppNavigation(dataStore: DataStoreManager) {
                 LaunchedEffect(key1 = tabHistory, block = { dataStore.saveCurrentTopBarTitle(currentTabTitle) })
 
                 TopAppBar(
-                    title = {  },
+                    title = { VerticallySlidingTitle(text = currentTopBarTitle) },
                     backgroundColor = MaterialTheme.themeColors.background
                 )
             },
