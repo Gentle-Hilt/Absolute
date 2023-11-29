@@ -45,4 +45,5 @@ dependencies {
 
     implementation(libs.logger)
     implementation(libs.timber)
+    implementation(libs.compose.strings.lyricist)
 }
