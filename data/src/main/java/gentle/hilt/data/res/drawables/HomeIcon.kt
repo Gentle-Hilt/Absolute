@@ -1,6 +1,6 @@
 package gentle.hilt.data.res.drawables
 
-
+import androidx.compose.foundation.Canvas
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path

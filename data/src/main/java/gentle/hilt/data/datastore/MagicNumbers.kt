@@ -14,4 +14,6 @@ object MagicNumbers {
     const val BOTTOM_NAVIGATION_HEIGHT = 80
     const val SEARCH_ICON_SIZE = 35
     const val TOP_BAR_TITLE_PADDING = 25
+
+    const val MENU_CONTENT_PADDING = 5
 }
