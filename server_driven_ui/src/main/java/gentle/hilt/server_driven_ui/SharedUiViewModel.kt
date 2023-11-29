@@ -42,7 +42,6 @@ class SharedUiViewModel(
                     val snapshot = ui.get().await()
                     val uiEntity = uiEntityListener(snapshot)
 
-
                     updateOrInsertUiEntity(uiEntity, lifeCycleScope)
                 } else if (_uiState.value == null) {
                     Timber.d("Ui Loaded from Room - ViewModelInstance $this@SharedUiViewModel")

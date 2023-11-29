@@ -6,10 +6,14 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import gentle.hilt.data.datastore.DataStoreManager.PreferencesKeys.TOP_APP_BAR_TITLE
-import gentle.hilt.data.datastore.DataStoreManager.PreferencesKeys.UI_UPDATES_TRIGGER
 import gentle.hilt.data.datastore.MagicNumbers.DARK_MODE_AUTO
 import gentle.hilt.data.datastore.MagicNumbers.DEFAULT_THEME
+import gentle.hilt.data.datastore.DataStoreManager.PreferencesKeys.DARK_MODE
+import gentle.hilt.data.datastore.DataStoreManager.PreferencesKeys.FIRST_TIME_IN_APP
+import gentle.hilt.data.datastore.DataStoreManager.PreferencesKeys.SILENT_NOTIFICATIONS
+import gentle.hilt.data.datastore.DataStoreManager.PreferencesKeys.THEME_PICKER
+import gentle.hilt.data.datastore.DataStoreManager.PreferencesKeys.TOP_APP_BAR_TITLE
+import gentle.hilt.data.datastore.DataStoreManager.PreferencesKeys.UI_UPDATES_TRIGGER
 import kotlinx.coroutines.FlowPreview
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.debounce
@@ -25,6 +29,8 @@ class DataStoreManager (
     private object PreferencesKeys {
         val UI_UPDATES_TRIGGER = booleanPreferencesKey("UI_UPDATES_TRIGGER")
         val TOP_APP_BAR_TITLE = stringPreferencesKey("TOP_APP_BAR_TITLE")
+        val SILENT_NOTIFICATIONS = booleanPreferencesKey("SILENT_NOTIFICATIONS")
+        val FIRST_TIME_IN_APP = booleanPreferencesKey("FIRST_TIME_IN_APP")
         val THEME_PICKER = intPreferencesKey("THEME_PICKER")
         val DARK_MODE = intPreferencesKey("DARK_MODE")
     }
@@ -46,19 +52,36 @@ class DataStoreManager (
         preferences[TOP_APP_BAR_TITLE] ?: "Home"
     }
 
+
+    suspend fun saveShouldTurnSilentUpdates(trigger: Boolean) = dataStore.edit{ preferences->
+        preferences[SILENT_NOTIFICATIONS] = trigger
+    }
+
+    val readSilentUpdates: Flow<Boolean> = dataStore.data.map { preferences->
+        preferences[SILENT_NOTIFICATIONS] ?: false
+    }
+
+    suspend fun saveFirstTimeInApp(firstTime: Boolean) = dataStore.edit { preferences ->
+        preferences[FIRST_TIME_IN_APP] = firstTime
+    }
+
+    val readFirstTimeInApp: Flow<Boolean> = dataStore.data.map { preferences ->
+        preferences[FIRST_TIME_IN_APP] ?: true
+    }
+
     suspend fun saveTheme(theme:Int) = dataStore.edit { preferences->
-        preferences[PreferencesKeys.THEME_PICKER] = theme
+        preferences[THEME_PICKER] = theme
     }
 
     val readTheme: Flow<Int> = dataStore.data.map { preferences->
-        preferences[PreferencesKeys.THEME_PICKER] ?: DEFAULT_THEME
+        preferences[THEME_PICKER] ?: DEFAULT_THEME
     }
 
     suspend fun saveDarkMode(darkMode:Int) = dataStore.edit{ preferences->
-        preferences[PreferencesKeys.DARK_MODE] = darkMode
+        preferences[DARK_MODE] = darkMode
     }
 
     val readDarkMode:Flow<Int> = dataStore.data.map { preferences->
-        preferences[PreferencesKeys.DARK_MODE] ?: DARK_MODE_AUTO
+        preferences[DARK_MODE] ?: DARK_MODE_AUTO
     }
 }
