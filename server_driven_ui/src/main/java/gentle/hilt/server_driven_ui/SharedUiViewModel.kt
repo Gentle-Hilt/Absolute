@@ -74,6 +74,40 @@ class SharedUiViewModel(
         val homeDataSnapshot = snapshot.child("home")
         val cartDataSnapshot = snapshot.child("menu")
 
+        val homeCategoriesListData = homeDataSnapshot
+            .child("categoriesList")
+            .child("data")
+            .children.mapNotNull { dataSnapshot ->
+                typeSafeNestedDataClass(
+                    receivedData = dataSnapshot.value,
+                    defaultData = Category(),
+                    nestedData = MenuItem(),
+                )
+            }
+
+        val homeCategoriesList = CategoriesList(data = homeCategoriesListData)
+
+        val homeUiConfiguration = typeSafeDataClass(
+            receivedData = homeDataSnapshot.child("uiConfiguration").value,
+            defaultData = CategoriesUiConfiguration()
+        ).applyCorrections()
+
+        val cartUiConfiguration = typeSafeDataClass(
+            receivedData = cartDataSnapshot.child("uiConfiguration").value,
+            defaultData = MenuUiConfiguration()
+        ).applyCorrections()
+
+
+        val homeScreen = CategoriesScreenData(
+            uiConfiguration = homeUiConfiguration,
+            categoriesList = homeCategoriesList
+        )
+
+        val cartScreen = MenuScreenData(
+            uiConfiguration = cartUiConfiguration,
+        )
+
+        return UiEntity(homeScreen = homeScreen, cartScreen = cartScreen)
     }
 }
 
