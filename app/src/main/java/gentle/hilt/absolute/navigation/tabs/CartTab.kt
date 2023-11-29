@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import gentle.hilt.cart.CartScreen
 import gentle.hilt.data.res.strings.strings
 
 object CartTab : Tab {
@@ -21,6 +22,6 @@ object CartTab : Tab {
 
     @Composable
     override fun Content() {
-
+        TabContent(CartScreen())
     }
 }
