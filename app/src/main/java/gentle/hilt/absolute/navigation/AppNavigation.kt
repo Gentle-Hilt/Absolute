@@ -72,7 +72,7 @@ fun AppNavigation(dataStore: DataStoreManager) {
                 }
             },
             bottomBar = {
-                //  Still has ripple effect on android 13+ (emulator) 
+                //  Still has ripple effect on android 13+ (emulator)
                 CompositionLocalProvider(LocalRippleTheme provides NoRippleEffectTheme) {
                     Surface(
                         modifier = Modifier,

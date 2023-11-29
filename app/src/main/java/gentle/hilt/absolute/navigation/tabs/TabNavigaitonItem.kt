@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import cafe.adriel.voyager.navigator.tab.LocalAndroidTabNavigator
 import cafe.adriel.voyager.navigator.tab.Tab
+import gentle.hilt.data.res.modifiers.applyScaleModifier
 import gentle.hilt.data.res.themes.themeColors
 
 @Composable
@@ -52,7 +53,7 @@ fun RowScope.TabNavigationItem(
                 painter = painter,
                 contentDescription = currentTabTitle,
                 modifier = Modifier
-
+                    .applyScaleModifier(isSelected, 1.2f)
                     .padding(
                         bottom = paddingBottom
 
