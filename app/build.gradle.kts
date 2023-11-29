@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.workmanager)
     implementation(libs.lifecycle.process)
+    implementation(libs.splash.screen)
 
     implementation(libs.logger)
     implementation(libs.timber)
