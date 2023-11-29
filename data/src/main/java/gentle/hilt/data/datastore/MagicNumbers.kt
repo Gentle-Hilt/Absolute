@@ -16,4 +16,8 @@ object MagicNumbers {
     const val TOP_BAR_TITLE_PADDING = 25
 
     const val MENU_CONTENT_PADDING = 5
+
+    const val HISTORY_GRID_CELLS = 5
+    const val BOUGHT_ITEM_SIZE = 64
+    const val HISTORY_LIST_CONTENT_PADDING = 10
 }

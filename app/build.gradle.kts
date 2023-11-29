@@ -36,6 +36,7 @@ dependencies {
     implementation(projects.screens.menu)
     implementation(projects.screens.categories)
     implementation(projects.screens.cart)
+    implementation(projects.screens.history)
 
     implementation(libs.compose.activity)
     implementation(libs.compose.lifecycle)
