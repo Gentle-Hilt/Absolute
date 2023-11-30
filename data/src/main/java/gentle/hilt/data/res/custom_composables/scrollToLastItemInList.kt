@@ -11,7 +11,9 @@ fun scrollToLastItemInList(list: List<Any>): LazyListState {
     val lazyListState = rememberLazyListState()
 
     LaunchedEffect(list) {
-        lazyListState.scrollToItem(list.size - 1)
+        if(list.isNotEmpty()){
+            lazyListState.scrollToItem(list.size - 1)
+        }
     }
 
     return lazyListState

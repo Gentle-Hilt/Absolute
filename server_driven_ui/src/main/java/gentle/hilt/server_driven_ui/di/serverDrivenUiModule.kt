@@ -7,5 +7,5 @@ import org.koin.androidx.workmanager.dsl.workerOf
 
 val serverDrivenUiModule = module {
     workerOf(::UpdateDataBaseWorker)
-    single { SharedUiViewModel(uiRepository = get(), dataStore = get()) }
+    single { SharedUiViewModel(uiRepository = get(), cartRepository = get(), dataStore = get()) }
 }
