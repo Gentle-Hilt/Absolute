@@ -18,6 +18,7 @@ import cafe.adriel.voyager.core.screen.ScreenKey
 import cafe.adriel.voyager.core.screen.uniqueScreenKey
 import gentle.hilt.data.datastore.DataStoreManager
 import gentle.hilt.data.res.themes.themeColors
+import gentle.hilt.profile.screen.settings.appearance.dark_mode.DarkModeSetting
 import gentle.hilt.profile.screen.settings.appearance.themes.ThemePickerSetting
 import gentle.hilt.profile.screen.settings.system.SilentNotificationSetting
 import gentle.hilt.profile.screen.text_no_action.AppearanceText
@@ -149,6 +150,16 @@ class ProfileScreen : Screen, Parcelable, KoinComponent {
                     height = Dimension.value(30.dp)
                 })
 
+
+            DarkModeSetting(
+                dataStore = dataStore,
+                modifier = Modifier.constrainAs(darkModeSetting) {
+                    top.linkTo(appearanceText.bottom)
+                    centerHorizontallyTo(parent)
+
+                    width = Dimension.fillToConstraints
+
+                })
 
             ThemesText(
                 modifier = Modifier.constrainAs(themesText) {
