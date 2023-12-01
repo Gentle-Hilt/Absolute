@@ -14,6 +14,7 @@ import cafe.adriel.lyricist.rememberStrings
 import com.google.firebase.auth.FirebaseAuth
 import gentle.hilt.absolute.first_time_in_app.firstTimeInApplication
 import gentle.hilt.absolute.navigation.AppNavigation
+import gentle.hilt.absolute.permisions.RuntimePermissions
 import gentle.hilt.absolute.theme_selector.ProvideThemes
 import gentle.hilt.data.datastore.DataStoreManager
 import gentle.hilt.data.res.strings.LocalStrings
@@ -36,6 +37,7 @@ class SingleActivity : ComponentActivity() {
             ProvideThemes(dataStore) {
                 ProvideStrings(lyricist = rememberStrings(allLocales), provider = LocalStrings) {
                     AppNavigation(dataStore)
+                    RuntimePermissions()
                 }
             }
         }

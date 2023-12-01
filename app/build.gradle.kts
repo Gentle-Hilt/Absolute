@@ -2,6 +2,7 @@
 plugins {
     id("gentle.hilt.application")
     id("gentle.hilt.compose.application")
+    alias(libs.plugins.ktlint)
 }
 
 android {
@@ -51,6 +52,7 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.compose.strings.lyricist)
 
+    implementation(libs.accompanist.permissions)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.ui)
 }
