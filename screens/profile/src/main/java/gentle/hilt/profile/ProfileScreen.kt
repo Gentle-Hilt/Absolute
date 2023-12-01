@@ -18,6 +18,7 @@ import cafe.adriel.voyager.core.screen.ScreenKey
 import cafe.adriel.voyager.core.screen.uniqueScreenKey
 import gentle.hilt.data.datastore.DataStoreManager
 import gentle.hilt.data.res.themes.themeColors
+import gentle.hilt.profile.screen.settings.system.SilentNotificationSetting
 import gentle.hilt.profile.screen.text_no_action.AppearanceText
 import gentle.hilt.profile.screen.text_no_action.SystemText
 import gentle.hilt.profile.screen.text_no_action.ThemesText
@@ -124,6 +125,17 @@ class ProfileScreen : Screen, Parcelable, KoinComponent {
                     start.linkTo(parent.start, margin = 20.dp)
 
                     width = Dimension.fillToConstraints
+                })
+
+            SilentNotificationSetting(
+                dataStore,
+                modifier = Modifier.constrainAs(silentNotificationSetting) {
+                    top.linkTo(systemText.bottom)
+                    start.linkTo(parent.start, margin = 20.dp)
+                    end.linkTo(parent.end, margin = 5.dp)
+
+                    width = Dimension.fillToConstraints
+
                 })
 
             AppearanceText(
