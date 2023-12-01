@@ -112,6 +112,10 @@ class SharedUiViewModel(
 
         return UiEntity(homeScreen = homeScreen, cartScreen = cartScreen)
     }
+    @TestOnly
+    fun dependenciesTestOnly(): Triple<UiRepository, CartRepository, DataStoreManager> {
+        return Triple(uiRepository, cartRepository, dataStore)
+    }
 }
 
 

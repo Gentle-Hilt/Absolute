@@ -55,4 +55,10 @@ dependencies {
     implementation(libs.accompanist.permissions)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.firebase.ui)
+    
+    testImplementation(testLibs.koin)
+    testImplementation(testLibs.mockk)
+    testImplementation(testLibs.truth)
+    testImplementation(testLibs.koin.junit4)
+    testImplementation(testLibs.robolectric)
 }
