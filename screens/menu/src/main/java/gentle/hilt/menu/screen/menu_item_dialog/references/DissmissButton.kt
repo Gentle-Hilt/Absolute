@@ -3,6 +3,7 @@ package gentle.hilt.menu.screen.menu_item_dialog.references
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import gentle.hilt.data.res.drawables.CloseIcon
 import gentle.hilt.data.res.strings.strings
 
 import gentle.hilt.data.res.themes.themeColors
@@ -30,7 +32,8 @@ fun DismissButtonDialog(onDismiss: () -> Unit, modifier: Modifier) {
                 .padding(5.dp)
         ) {
             Icon(
-                imageVector = Icons.Default.Close,
+                modifier = Modifier.size(15.dp),
+                painter = CloseIcon(),
                 contentDescription = strings.description_dismiss_dialog,
                 tint = MaterialTheme.themeColors.text
             )
