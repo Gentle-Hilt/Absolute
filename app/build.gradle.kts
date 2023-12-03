@@ -47,15 +47,10 @@ dependencies {
     implementation(libs.koin.workmanager)
     implementation(libs.lifecycle.process)
     implementation(libs.splash.screen)
-
-    implementation(libs.logger)
-    implementation(libs.timber)
     implementation(libs.compose.strings.lyricist)
-
     implementation(libs.accompanist.permissions)
     implementation(libs.firebase.auth.ktx)
-    implementation(libs.firebase.ui)
-    
+
     testImplementation(testLibs.koin)
     testImplementation(testLibs.mockk)
     testImplementation(testLibs.truth)

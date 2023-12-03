@@ -16,16 +16,8 @@ dependencies {
     api(libs.compose.runtime)
     api(libs.constraint.compose)
     api(libs.compose.text)
+    api(libs.compose.lifecycle)
     // Di
     api(libs.koin.android)
     api(libs.koin.compose)
-    // Can be replaced
-    api(libs.timber)
-    api(libs.compose.animation)
-    api(libs.compose.coil)
-    api(libs.compose.icons.core)
-    api(libs.compose.icons.extended)
-
-    // Lifecycle
-    api(libs.compose.lifecycle)
 }
