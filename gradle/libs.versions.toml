@@ -32,9 +32,7 @@ logger = "2.2.0"
 ktlint = "11.3.1"
 
 # Firebase
-google_services = "4.3.15"
 firebase_bom = "32.2.2"
-firebaseCommonKtx = "20.3.3"
 
 # Collections
 immutable = "0.3.5"
@@ -45,8 +43,10 @@ lyricist = "1.6.2"
 #Splash Screen
 splash-screen = "1.0.1"
 
-firebaseAuthKtx = "22.2.0"
-firebase-ui = "8.0.2"
+#Plugins
+google_crashlytics_plugin = "2.9.9"
+google_services_plugin = "4.3.15"
+
 
 
 [libraries]
@@ -100,15 +100,17 @@ splash-screen = {group = "androidx.core", name = "core-splashscreen", version.re
 timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "timber" }
 logger = { group = "com.orhanobut", name = "logger", version.ref = "logger" }
 
-# Google
+# Firebase, only add dependencies using bom, otherwise many MANY problems will occur
 firebase_bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase_bom" }
 firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore-ktx", version = "24.7.0" }
-
 firebase-database = { group = "com.google.firebase", name = "firebase-database-ktx", version = "20.2.2" }
 firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging-ktx", version = "23.2.1" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx", version = "21.3.0" }
 play-services-measurement = { group = "com.google.android.gms", name = "play-services-measurement-api", version = "21.3.0" }
-firebase-common-ktx = { group = "com.google.firebase", name = "firebase-common-ktx", version.ref = "firebaseCommonKtx" }
+firebase-common = { group = "com.google.firebase", name = "firebase-common-ktx", version = "20.3.3" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx", version = "22.2.0" }
+firebase-ui = {group = "com.firebaseui", name = "firebase-ui-auth", version = "8.0.2"}
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx", version = "18.6.0" }
 
 # Kotlin
 kotlin-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
@@ -123,9 +125,8 @@ kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-pl
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
-# Automaticly added dependencies is usually here, sort them.
-firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx", version.ref = "firebaseAuthKtx" }
-firebase-ui = {group = "com.firebaseui", name = "firebase-ui-auth", version.ref = "firebase-ui"}
+# Automaticly added dependencies with bom is usually here, sort them.
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -133,6 +134,7 @@ kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-google_services = { id = "com.google.gms.google-services", version.ref = "google_services" }
+google_services = { id = "com.google.gms.google-services", version.ref = "google_services_plugin" }
+google_crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "google_crashlytics_plugin"}
 ktlint = { id = "org.jlleitschuh.gradle.ktlint", version.ref = "ktlint" }
 

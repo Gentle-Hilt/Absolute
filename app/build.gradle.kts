@@ -3,6 +3,8 @@ plugins {
     id("gentle.hilt.application")
     id("gentle.hilt.compose.application")
     alias(libs.plugins.ktlint)
+    alias(libs.plugins.google.services)
+    alias(libs.plugins.google.crashlytics)
 }
 
 android {
@@ -49,7 +51,13 @@ dependencies {
     implementation(libs.splash.screen)
     implementation(libs.compose.strings.lyricist)
     implementation(libs.accompanist.permissions)
-    implementation(libs.firebase.auth.ktx)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.ui)
+
+    //  https://github.com/firebase/firebase-android-sdk/issues/5176
+    implementation(libs.firebase.crashlytics.ktx) {
+        exclude(group = "androidx.datastore", module = "datastore-preferences")
+    }
 
     testImplementation(testLibs.koin)
     testImplementation(testLibs.mockk)
