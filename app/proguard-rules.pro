@@ -50,3 +50,6 @@
 -keep class gentle.hilt.data.converters.CartConverter{ *; }
 -keep class gentle.hilt.data.converters.UiConverter { *; }
 -keepattributes Signature
+
+-keepattributes SourceFile,LineNumberTable        # Keep file names and line numbers.
+-keep public class * extends java.lang.Exception  # Optional: Keep custom exceptions.

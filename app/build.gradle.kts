@@ -55,7 +55,7 @@ dependencies {
     implementation(libs.firebase.ui)
 
     //  https://github.com/firebase/firebase-android-sdk/issues/5176
-    implementation(libs.firebase.crashlytics.ktx) {
+    implementation(libs.firebase.crashlytics) {
         exclude(group = "androidx.datastore", module = "datastore-preferences")
     }
 
